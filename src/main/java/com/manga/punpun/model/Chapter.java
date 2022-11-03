@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "chapters")
@@ -29,6 +30,13 @@ public class Chapter implements Serializable {
     @JoinColumn(name = "id_volume")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "chapters"})
     private Volume volume;
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "chapters_characters", joinColumns = @JoinColumn(name = "id_chapter"),
+            inverseJoinColumns = @JoinColumn(name = "id_character"),
+    uniqueConstraints = {@UniqueConstraint(columnNames = {"id_chapter","id_character"})})
+    @JsonIgnoreProperties({"hibernateLazyInitializer","handler","chapters"})
+    private List<MangaCharacter> characterList;
 
     /**
      *

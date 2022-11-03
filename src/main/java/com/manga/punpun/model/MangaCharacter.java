@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "characters")
@@ -15,7 +16,7 @@ public class MangaCharacter {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer id_character;
 
     @Column(length = 85)
     private String name;
@@ -30,4 +31,7 @@ public class MangaCharacter {
 
     @Column(length = 20)
     private String species;
+
+    @ManyToMany(mappedBy = "characterList")
+    private List<Chapter> chapters;
 }
