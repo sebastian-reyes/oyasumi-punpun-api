@@ -14,9 +14,9 @@ public class HomeRestController {
     @GetMapping("/")
     public ResponseEntity<?> home(){
         Map<String, Object> response = new HashMap<>();
-        //response.put("Volume","http://localhost:9898/api/volume");
+        response.put("Volumes","http://localhost:9898/api/volume");
         response.put("Characters","http://localhost:9898/api/character/page/0");
-        //response.put("Chapters","http://localhost:9898/api/chapter");
+        response.put("Chapters","http://localhost:9898/api/chapter/page/0");
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }
