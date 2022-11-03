@@ -1,5 +1,6 @@
 package com.manga.punpun.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -32,6 +33,7 @@ public class MangaCharacter {
     @Column(length = 20)
     private String species;
 
-    @ManyToMany(mappedBy = "characterList")
+    @ManyToMany(mappedBy = "characters")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler","volume", "characters"})
     private List<Chapter> chapters;
 }
