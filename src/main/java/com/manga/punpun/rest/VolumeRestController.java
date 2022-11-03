@@ -20,13 +20,14 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/volume")
-public class VolumeRestController {
+public class
+VolumeRestController {
 
     @Autowired
     private IVolumeService service;
 
     @GetMapping
-    public ResponseEntity<?> listVolumes() {
+    public ResponseEntity<?> getVolumes() {
         Map<String, Object> response = new HashMap<>();
         List<Volume> volumes = service.listVolumes();
         response.put("content", volumes);
@@ -34,18 +35,18 @@ public class VolumeRestController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> listVolume(@PathVariable Integer id){
+    public ResponseEntity<?> getCharacter(@PathVariable Integer id) {
         Map<String, Object> response = new HashMap<>();
         Volume volume = null;
         try {
             volume = service.findVolume(id);
-            if(volume != null){
+            if (volume != null) {
                 return new ResponseEntity<>(volume, HttpStatus.OK);
-            }else{
+            } else {
                 response.put("message", "Volume not found");
                 return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
             }
-        }catch (DataAccessException e){
+        } catch (DataAccessException e) {
             response.put("message", "Error when querying the database.");
             response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
             return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
