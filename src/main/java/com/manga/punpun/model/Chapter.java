@@ -35,7 +35,7 @@ public class Chapter implements Serializable {
     @JoinTable(name = "chapters_characters", joinColumns = @JoinColumn(name = "id_chapter"),
             inverseJoinColumns = @JoinColumn(name = "id_character"),
             uniqueConstraints = {@UniqueConstraint(columnNames = {"id_chapter", "id_character"})})
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "chapters", "image", "gender", "status", "species"})
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "chapters", "id_character", "image", "gender", "status", "species"})
     private List<MangaCharacter> characters;
 
     /**

@@ -36,4 +36,8 @@ public class MangaCharacter {
     @ManyToMany(mappedBy = "characters")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler","volume", "characters"})
     private List<Chapter> chapters;
+
+    public String getUrl(){
+        return "http://localhost:9898/api/character/"+getId_character();
+    }
 }

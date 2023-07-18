@@ -30,7 +30,7 @@ public class Volume implements Serializable {
     private String url;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "volume", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler","volume","characterList"})
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler","volume","characters"})
     private List<Chapter> chapters;
 
     /**
