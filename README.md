@@ -1,4 +1,6 @@
-![Oyasumi punpun API](https://github.com/sebastian-reyes/oyasumi-punpun-api/blob/master/src/main/resources/static/readme/main_photo.jpg)
+<p align="center">
+    <img width="460" src="https://github.com/sebastian-reyes/oyasumi-punpun-api/blob/master/src/main/resources/static/readme/main_photo.jpg">
+</p>
 
 # Oyasumi Punpun API
 
