@@ -23,9 +23,6 @@ public class Chapter implements Serializable {
     @Column(name = "name", length = 15)
     private String name;
 
-    @Column(unique = true)
-    private String url;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_volume")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "chapters", "id_volume", "description"})
@@ -37,6 +34,10 @@ public class Chapter implements Serializable {
             uniqueConstraints = {@UniqueConstraint(columnNames = {"id_chapter", "id_character"})})
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "chapters", "id_character", "image", "gender", "status", "species"})
     private List<MangaCharacter> characters;
+
+    public String getUrl(){
+        return "http://localhost:9898/api/v0/chapter/"+getId_chapter();
+    }
 
     /**
      *

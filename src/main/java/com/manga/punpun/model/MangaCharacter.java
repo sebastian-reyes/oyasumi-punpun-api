@@ -38,6 +38,6 @@ public class MangaCharacter {
     private List<Chapter> chapters;
 
     public String getUrl(){
-        return "http://localhost:9898/api/character/"+getId_character();
+        return "http://localhost:9898/api/v0/character/"+getId_character();
     }
 }

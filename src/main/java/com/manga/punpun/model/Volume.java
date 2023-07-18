@@ -26,12 +26,13 @@ public class Volume implements Serializable {
     @Column(columnDefinition = "TEXT")
     private String description;
 
-    @Column(unique = true)
-    private String url;
-
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "volume", cascade = CascadeType.ALL)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler","volume","characters"})
     private List<Chapter> chapters;
+
+    public String getUrl(){
+        return "http://localhost:9898/api/v0/volume/"+getId_volume();
+    }
 
     /**
      *
