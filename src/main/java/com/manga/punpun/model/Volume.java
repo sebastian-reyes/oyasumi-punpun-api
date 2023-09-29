@@ -26,6 +26,9 @@ public class Volume implements Serializable {
     @Column(columnDefinition = "TEXT")
     private String description;
 
+    @Column
+    private String image;
+
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "volume", cascade = CascadeType.ALL)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler","volume","characters"})
     private List<Chapter> chapters;
