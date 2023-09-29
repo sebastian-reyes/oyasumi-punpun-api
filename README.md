@@ -4,4 +4,18 @@
 
 # Oyasumi Punpun API
 
-RESTful API based on the manga [Oyasumi Punpun](https://oyasumi-punpun-manga.com/). You will access to data about all characters, images, chapters and volumes. The Oyasumi Punpun API is filled with canonical information as seen on the manga.
+RESTful API based on the manga [Oyasumi Punpun](https://oyasumi-punpun-manga.com/). You will access to data about all
+characters, images, chapters and volumes. The Oyasumi Punpun API is filled with canonical information as seen on the
+manga.
+
+## Endpoints
+
+### Base URL:
+```bash
+(GET)  http://localhost:9898/api/v0/
+```
+
+## Technologies
+- Java 8
+- MariaDB
+- Spring Boot 2.7.3
