@@ -60,7 +60,7 @@ public class CharacterRestController {
         try {
             character = service.findCharacter(id);
             if (character != null) {
-                name_photo = character.getImage();
+                name_photo = character.getName_image();
                 if (name_photo != null) {
                     File img = new File("src/main/resources/static/photos/" + name_photo);
                     return ResponseEntity.ok()

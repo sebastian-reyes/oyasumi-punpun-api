@@ -22,7 +22,8 @@ public class MangaCharacter {
     @Column(length = 85)
     private String name;
 
-    private String image;
+    @Column(name = "image")
+    private String name_image;
 
     @Column(length = 6)
     private String gender;
@@ -37,6 +38,7 @@ public class MangaCharacter {
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler","volume", "characters"})
     private List<Chapter> chapters;
 
+    public String getImage() {return "http://localhost:9898/api/v0/character/photo/"+getId_character();}
     public String getUrl(){
         return "http://localhost:9898/api/v0/character/"+getId_character();
     }
