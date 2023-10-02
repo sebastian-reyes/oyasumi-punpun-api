@@ -12,15 +12,12 @@ manga.
 
 ### Base URL:
 
-| http://localhost:9898/api/v0/                                  |
-|----------------------------------------------------------------|
-| {                                                              |
-| "Volumes": "http://localhost:9898/api/v0/volume",              |
-| "Characters": "http://localhost:9898/api/v0/character/page/0", |
-| "Chapters": "http://localhost:9898/api/v0/chapter/page/0"      |
-| }                                                              |
+| http://localhost:9898/api/v0/                                                                                                                                                       |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ```json {"Volumes":"http://localhost:9898/api/v0/volume","Characters":"http://localhost:9898/api/v0/character/page/0","Chapters":"http://localhost:9898/api/v0/chapter/page/0"} ``` |
 
 ## Technologies
+
 - Java 8
 - MariaDB
 - Spring Boot 2.7.3
