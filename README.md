@@ -12,11 +12,12 @@ manga.
 
 ### Base URL:
 
-```bash
-(GET)  http://localhost:9898/api/v0/
+```http request
+http://localhost:9898/api/v0/
 ```
 
 ### Response:
+
 ```json
 {
   "Volumes": "http://localhost:9898/api/v0/volume",
