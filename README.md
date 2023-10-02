@@ -11,9 +11,14 @@ manga.
 ## Endpoints
 
 ### Base URL:
-```bash
-(GET)  http://localhost:9898/api/v0/
-```
+
+| http://localhost:9898/api/v0/                                  |
+|----------------------------------------------------------------|
+| {                                                              |
+| "Volumes": "http://localhost:9898/api/v0/volume",              |
+| "Characters": "http://localhost:9898/api/v0/character/page/0", |
+| "Chapters": "http://localhost:9898/api/v0/chapter/page/0"      |
+| }                                                              |
 
 ## Technologies
 - Java 8
