@@ -13,7 +13,7 @@ manga.
 ### Base URL:
 
 ```http request
-http://localhost:9898/api/v0/
+GET http://localhost:9898/api/v0/
 ```
 
 ### Response:
