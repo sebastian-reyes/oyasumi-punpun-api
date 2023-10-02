@@ -30,7 +30,7 @@ public class CharacterRestController {
 
     @GetMapping("/page/{page}")
     public Page<MangaCharacter> getCharacters(@PathVariable Integer page) {
-        return service.listCharacter(PageRequest.of(page, 15));
+        return service.listCharacter(PageRequest.of(page, 8));
     }
 
     @GetMapping("/{id}")
