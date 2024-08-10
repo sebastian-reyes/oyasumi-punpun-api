@@ -18,7 +18,7 @@ public class Chapter implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id_chapter;
+    private Integer idChapter;
 
     @Column(name = "name", length = 15)
     private String name;
@@ -34,10 +34,6 @@ public class Chapter implements Serializable {
             uniqueConstraints = {@UniqueConstraint(columnNames = {"id_chapter", "id_character"})})
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "chapters", "id_character", "name_image", "image", "gender", "status", "species"})
     private List<MangaCharacter> characters;
-
-    public String getUrl() {
-        return "http://localhost:9898/api/v0/chapter/" + getId_chapter();
-    }
 
     /**
      *

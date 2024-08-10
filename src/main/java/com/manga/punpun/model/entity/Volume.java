@@ -18,15 +18,15 @@ public class Volume implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id_volume;
+    @Column(name = "id_volume")
+    private Integer idVolume;
 
-    @Column(name = "name", length = 15)
+    @Column(length = 15)
     private String name;
 
     @Column(columnDefinition = "TEXT")
     private String description;
 
-    @Column
     private String image;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "volume", cascade = CascadeType.ALL)
@@ -34,7 +34,7 @@ public class Volume implements Serializable {
     private List<Chapter> chapters;
 
     public String getUrl(){
-        return "http://localhost:9898/api/v0/volume/"+getId_volume();
+        return "http://localhost:9898/api/v0/volume/"+getIdVolume();
     }
 
     /**
