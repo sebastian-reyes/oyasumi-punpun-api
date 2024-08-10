@@ -1,8 +1,7 @@
 package com.manga.punpun.rest;
 
-import com.manga.punpun.interfaceService.IChapterService;
-import com.manga.punpun.model.Chapter;
-import com.manga.punpun.model.MangaCharacter;
+import com.manga.punpun.service.ChapterService;
+import com.manga.punpun.model.entity.Chapter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.domain.Page;
@@ -22,7 +21,7 @@ import java.util.Map;
 public class ChapterController {
 
     @Autowired
-    private IChapterService service;
+    private ChapterService service;
 
     @GetMapping("/page/{page}")
     public Page<Chapter> getChapters(@PathVariable Integer page) {

@@ -1,4 +1,4 @@
-package com.manga.punpun.model;
+package com.manga.punpun.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;

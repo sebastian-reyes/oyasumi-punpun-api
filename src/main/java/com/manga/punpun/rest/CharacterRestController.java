@@ -1,7 +1,7 @@
 package com.manga.punpun.rest;
 
-import com.manga.punpun.interfaceService.ICharacterService;
-import com.manga.punpun.model.MangaCharacter;
+import com.manga.punpun.service.CharacterService;
+import com.manga.punpun.model.entity.MangaCharacter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.domain.Page;
@@ -26,7 +26,7 @@ import java.util.Map;
 public class CharacterRestController {
 
     @Autowired
-    private ICharacterService service;
+    private CharacterService service;
 
     @GetMapping("/page/{page}")
     public Page<MangaCharacter> getCharacters(@PathVariable Integer page) {
