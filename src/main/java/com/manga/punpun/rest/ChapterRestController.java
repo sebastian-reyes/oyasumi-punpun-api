@@ -1,9 +1,8 @@
 package com.manga.punpun.rest;
 
+import com.manga.punpun.model.dto.ChapterDto;
 import com.manga.punpun.service.ChapterService;
-import com.manga.punpun.model.entity.Chapter;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -20,19 +19,19 @@ import java.util.Map;
 @RestController
 @RequestMapping("/chapter")
 @RequiredArgsConstructor
-public class ChapterController {
+public class ChapterRestController {
 
     private final ChapterService service;
 
     @GetMapping("/page/{page}")
-    public Page<Chapter> getChapters(@PathVariable Integer page) {
+    public Page<ChapterDto> getChapters(@PathVariable Integer page) {
         return service.listChapter(PageRequest.of(page,15));
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<?> getChapter(@PathVariable Integer id){
         Map<String, Object> response = new HashMap<>();
-        Chapter chapter = null;
+        ChapterDto chapter = null;
         try{
             chapter = service.findChapter(id);
             if(chapter!=null){

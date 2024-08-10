@@ -1,9 +1,9 @@
 package com.manga.punpun.rest;
 
+import com.manga.punpun.model.dto.MangaCharacterDto;
 import com.manga.punpun.service.CharacterService;
 import com.manga.punpun.model.entity.MangaCharacter;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -30,14 +30,14 @@ public class CharacterRestController {
     private final CharacterService service;
 
     @GetMapping("/page/{page}")
-    public Page<MangaCharacter> getCharacters(@PathVariable Integer page) {
+    public Page<MangaCharacterDto> getCharacters(@PathVariable Integer page) {
         return service.listCharacter(PageRequest.of(page, 8));
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<?> getCharacter(@PathVariable Integer id) {
         Map<String, Object> response = new HashMap<>();
-        MangaCharacter character = null;
+        MangaCharacterDto character = null;
         try {
             character = service.findCharacter(id);
             if (character != null) {
@@ -55,7 +55,7 @@ public class CharacterRestController {
 
     @GetMapping("/photo/{id}")
     public ResponseEntity<?> getCharacterPhoto(@PathVariable Integer id) throws IOException {
-        MangaCharacter character = null;
+        MangaCharacterDto character = null;
         String name_photo = null;
         Map<String, Object> response = new HashMap<>();
         try {

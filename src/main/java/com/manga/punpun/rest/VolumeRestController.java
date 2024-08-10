@@ -1,5 +1,6 @@
 package com.manga.punpun.rest;
 
+import com.manga.punpun.model.dto.VolumeDto;
 import com.manga.punpun.service.VolumeService;
 import com.manga.punpun.model.entity.Volume;
 import lombok.RequiredArgsConstructor;
@@ -32,7 +33,7 @@ VolumeRestController {
     @GetMapping
     public ResponseEntity<?> getVolumes() {
         Map<String, Object> response = new HashMap<>();
-        List<Volume> volumes = service.listVolumes();
+        List<VolumeDto> volumes = service.listVolumes();
         response.put("content", volumes);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
@@ -40,7 +41,7 @@ VolumeRestController {
     @GetMapping("/{id}")
     public ResponseEntity<?> getVolume(@PathVariable Integer id) {
         Map<String, Object> response = new HashMap<>();
-        Volume volume = null;
+        VolumeDto volume = null;
         try {
             volume = service.findVolume(id);
             if (volume != null) {
@@ -58,7 +59,7 @@ VolumeRestController {
 
     @GetMapping("/photo/{id}")
     public ResponseEntity<?> getVolumePhoto(@PathVariable Integer id) throws IOException {
-        Volume volume = null;
+        VolumeDto volume = null;
         String name_photo = null;
         Map<String, Object> response = new HashMap<>();
         try {

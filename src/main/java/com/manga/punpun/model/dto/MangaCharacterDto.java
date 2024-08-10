@@ -18,5 +18,5 @@ public class MangaCharacterDto {
     private String gender;
     private String status;
     private String species;
-    private List<ChapterDto> chapters;
+    private List<Integer> chaptersIds;
 }

@@ -16,5 +16,5 @@ public class VolumeDto {
     private String name;
     private String description;
     private String image;
-    List<ChapterDto> chapters;
+    List<Integer> chaptersIds;
 }

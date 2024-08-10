@@ -1,6 +1,5 @@
 package com.manga.punpun.model.dto;
 
-import com.manga.punpun.model.entity.Volume;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,11 +12,11 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 public class ChapterDto {
-    private Integer id_chapter;
+    private Integer idChapter;
     private String name;
-    private Volume volume;
-    private List<MangaCharacterDto> mangaCharacters;
+    private Integer volumeId;
+    private List<Integer> mangaCharactersIds;
     public String getUrl() {
-        return "http://localhost:9898/api/v0/chapter/" + getId_chapter();
+        return "http://localhost:9898/api/v0/chapter/" + getIdChapter();
     }
 }
