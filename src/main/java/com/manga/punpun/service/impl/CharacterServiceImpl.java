@@ -3,16 +3,16 @@ package com.manga.punpun.service.impl;
 import com.manga.punpun.model.entity.MangaCharacter;
 import com.manga.punpun.repository.CharacterRepository;
 import com.manga.punpun.service.CharacterService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class CharacterServiceImpl implements CharacterService {
 
-    @Autowired
-    private CharacterRepository repository;
+    private final CharacterRepository repository;
 
     @Override
     public Page<MangaCharacter> listCharacter(Pageable pageable) {

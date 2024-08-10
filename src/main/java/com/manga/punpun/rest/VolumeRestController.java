@@ -2,6 +2,7 @@ package com.manga.punpun.rest;
 
 import com.manga.punpun.service.VolumeService;
 import com.manga.punpun.model.entity.Volume;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
@@ -22,11 +23,11 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/volume")
+@RequiredArgsConstructor
 public class
 VolumeRestController {
 
-    @Autowired
-    private VolumeService service;
+    private final VolumeService service;
 
     @GetMapping
     public ResponseEntity<?> getVolumes() {

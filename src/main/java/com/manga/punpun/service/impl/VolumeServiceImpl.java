@@ -3,16 +3,16 @@ package com.manga.punpun.service.impl;
 import com.manga.punpun.model.entity.Volume;
 import com.manga.punpun.repository.VolumeRepository;
 import com.manga.punpun.service.VolumeService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class VolumeServiceImpl implements VolumeService {
 
-    @Autowired
-    private VolumeRepository repository;
+    private final VolumeRepository repository;
 
     @Override
     public List<Volume> listVolumes() {

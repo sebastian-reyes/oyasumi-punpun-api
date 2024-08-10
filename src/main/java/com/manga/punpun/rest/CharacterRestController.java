@@ -2,6 +2,7 @@ package com.manga.punpun.rest;
 
 import com.manga.punpun.service.CharacterService;
 import com.manga.punpun.model.entity.MangaCharacter;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.domain.Page;
@@ -23,10 +24,10 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/character")
+@RequiredArgsConstructor
 public class CharacterRestController {
 
-    @Autowired
-    private CharacterService service;
+    private final CharacterService service;
 
     @GetMapping("/page/{page}")
     public Page<MangaCharacter> getCharacters(@PathVariable Integer page) {

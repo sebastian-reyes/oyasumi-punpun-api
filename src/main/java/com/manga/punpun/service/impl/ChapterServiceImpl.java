@@ -3,16 +3,16 @@ package com.manga.punpun.service.impl;
 import com.manga.punpun.model.entity.Chapter;
 import com.manga.punpun.repository.ChapterRepository;
 import com.manga.punpun.service.ChapterService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class ChapterServiceImpl implements ChapterService {
 
-    @Autowired
-    private ChapterRepository repository;
+    private final ChapterRepository repository;
 
     @Override
     public Page<Chapter> listChapter(Pageable pageable) {

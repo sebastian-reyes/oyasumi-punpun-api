@@ -2,6 +2,7 @@ package com.manga.punpun.rest;
 
 import com.manga.punpun.service.ChapterService;
 import com.manga.punpun.model.entity.Chapter;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.domain.Page;
@@ -18,10 +19,10 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/chapter")
+@RequiredArgsConstructor
 public class ChapterController {
 
-    @Autowired
-    private ChapterService service;
+    private final ChapterService service;
 
     @GetMapping("/page/{page}")
     public Page<Chapter> getChapters(@PathVariable Integer page) {
