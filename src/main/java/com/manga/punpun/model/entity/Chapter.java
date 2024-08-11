@@ -26,15 +26,17 @@ public class Chapter implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_volume")
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "chaptersIds", "id_volume", "description"})
     private Volume volume;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "chapters_characters", joinColumns = @JoinColumn(name = "id_chapter"),
             inverseJoinColumns = @JoinColumn(name = "id_character"),
             uniqueConstraints = {@UniqueConstraint(columnNames = {"id_chapter", "id_character"})})
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "chaptersIds", "id_character", "name_image", "image", "gender", "status", "species"})
     private List<MangaCharacter> characters;
+
+    public String getUrl(){
+        return "http://localhost:9898/api/v0/chapter/"+getIdChapter();
+    }
 
     /**
      *

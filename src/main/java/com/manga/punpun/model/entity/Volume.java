@@ -27,15 +27,16 @@ public class Volume implements Serializable {
     @Column(columnDefinition = "TEXT")
     private String description;
 
-    private String image;
+    @Column(name = "name_image")
+    private String nameImage;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "volume", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler","volume","characters"})
     private List<Chapter> chapters;
 
     public String getUrl(){
         return "http://localhost:9898/api/v0/volume/"+getIdVolume();
     }
+    public String getImage() { return "http://localhost:9898/api/v0/volume/photo/"+getIdVolume(); }
 
     /**
      *

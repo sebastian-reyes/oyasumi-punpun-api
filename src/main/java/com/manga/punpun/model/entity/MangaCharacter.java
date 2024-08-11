@@ -37,7 +37,6 @@ public class MangaCharacter implements Serializable {
     private String species;
 
     @ManyToMany(mappedBy = "characters")
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler","volume", "characters"})
     private List<Chapter> chapters;
 
     public String getImage() {return "http://localhost:9898/api/v0/character/photo/"+getIdCharacter();}

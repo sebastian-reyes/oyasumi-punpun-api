@@ -65,7 +65,7 @@ VolumeRestController {
         try {
             volume = service.findVolume(id);
             if (volume != null) {
-                name_photo = volume.getImage();
+                name_photo = volume.getNameImage();
                 if (name_photo != null){
                     File img = new File("src/main/resources/static/photos/volume/" + name_photo);
                     return ResponseEntity.ok()
@@ -85,5 +85,4 @@ VolumeRestController {
             return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
 }

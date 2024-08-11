@@ -1,5 +1,6 @@
 package com.manga.punpun.model.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,5 +19,8 @@ public class MangaCharacterDto {
     private String gender;
     private String status;
     private String species;
-    private List<Integer> chaptersIds;
+    @JsonIgnoreProperties({"volume", "characters"})
+    private List<ChapterDto> chapters;
+    private String url;
+    private String image;
 }

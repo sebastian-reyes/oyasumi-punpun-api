@@ -1,5 +1,6 @@
 package com.manga.punpun.service.impl;
 
+import com.manga.punpun.model.dto.ChapterDto;
 import com.manga.punpun.model.dto.MangaCharacterDto;
 import com.manga.punpun.model.entity.Chapter;
 import com.manga.punpun.model.entity.MangaCharacter;
@@ -37,10 +38,20 @@ public class CharacterServiceImpl implements CharacterService {
                 .gender(mangaCharacter.getGender())
                 .status(mangaCharacter.getStatus())
                 .species(mangaCharacter.getSpecies())
-                .chaptersIds(mangaCharacter.getChapters()
+                .chapters(mangaCharacter.getChapters()
                         .stream()
-                        .map(Chapter::getIdChapter)
+                        .map(this::maptoChapterDto)
                         .collect(Collectors.toList()))
+                .url(mangaCharacter.getUrl())
+                .image(mangaCharacter.getImage())
+                .build();
+    }
+
+    private ChapterDto maptoChapterDto(Chapter chapter) {
+        return ChapterDto.builder()
+                .idChapter(chapter.getIdChapter())
+                .name(chapter.getName())
+                .url(chapter.getUrl())
                 .build();
     }
 }
