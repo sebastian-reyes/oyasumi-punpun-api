@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
@@ -13,17 +14,18 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class MangaCharacter {
+public class MangaCharacter implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id_character;
+    @Column(name = "id_character")
+    private Integer idCharacter;
 
     @Column(length = 85)
     private String name;
 
     @Column(name = "image")
-    private String name_image;
+    private String nameImage;
 
     @Column(length = 6)
     private String gender;
@@ -35,11 +37,15 @@ public class MangaCharacter {
     private String species;
 
     @ManyToMany(mappedBy = "characters")
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler","volume", "characters"})
     private List<Chapter> chapters;
 
-    public String getImage() {return "http://localhost:9898/api/v0/character/photo/"+getId_character();}
+    public String getImage() {return "http://localhost:9898/api/v0/character/photo/"+getIdCharacter();}
     public String getUrl(){
-        return "http://localhost:9898/api/v0/character/"+getId_character();
+        return "http://localhost:9898/api/v0/character/"+getIdCharacter();
     }
+
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
 }
