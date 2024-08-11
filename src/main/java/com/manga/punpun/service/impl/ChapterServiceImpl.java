@@ -13,6 +13,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -28,8 +29,8 @@ public class ChapterServiceImpl implements ChapterService {
     }
 
     @Override
-    public ChapterDto findChapter(int id) {
-        return repository.findById(id).map(this::mapToChapterDto).orElse(null);
+    public Optional<ChapterDto> findChapter(int id) {
+        return repository.findById(id).map(this::mapToChapterDto);
     }
 
     private ChapterDto mapToChapterDto(Chapter chapter) {

@@ -12,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -27,8 +28,8 @@ public class VolumeServiceImpl implements VolumeService {
     }
 
     @Override
-    public VolumeDto findVolume(int id) {
-        return repository.findById(id).map(this::mapToVolumeDto).orElse(null);
+    public Optional<VolumeDto> findVolume(int id) {
+        return repository.findById(id).map(this::mapToVolumeDto);
     }
 
     private VolumeDto mapToVolumeDto(Volume volume) {
@@ -42,7 +43,6 @@ public class VolumeServiceImpl implements VolumeService {
                 .url(volume.getUrl())
                 .build();
     }
-
 
     private ChapterDto mapToChapterDto(Chapter chapter) {
         return ChapterDto.builder()

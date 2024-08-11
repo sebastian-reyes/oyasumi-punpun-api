@@ -11,6 +11,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -26,8 +27,8 @@ public class CharacterServiceImpl implements CharacterService {
     }
 
     @Override
-    public MangaCharacterDto findCharacter(int id) {
-        return repository.findById(id).map(this::maptoMangaCharacterDto).orElse(null);
+    public Optional<MangaCharacterDto> findCharacter(int id) {
+        return repository.findById(id).map(this::maptoMangaCharacterDto);
     }
 
     private MangaCharacterDto maptoMangaCharacterDto(MangaCharacter mangaCharacter) {
